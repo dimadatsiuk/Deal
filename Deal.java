@@ -57,18 +57,32 @@ public class Deal {
 				for (int i = 0; i < countOfCards; i++) {
 
 					int r = i + (int) (Math.random() * (countOfCards - i)); // random card in deck
-					String temp = deck[r];
+					String tempCard = deck[r];
 					deck[r] = deck[i];
-					deck[i] = temp;
+					deck[i] = tempCard;
 
 				}
 
 				// step 5 -- mixed deck output
 
 				System.out.println();
-				int player = 1;
-				System.out.println(player+". player: ");
-				for (int j = 0; j < players * cardsPerPlayer; j++) {
+
+				int cardNo = 0;
+				
+				for (int j = 0; j < players; j++) {
+
+					System.out.println((j+1) +". player: ");
+
+					for (int i = 0; i < cardsPerPlayer; i++) {
+						cardNo++;
+						System.out.println(deck[cardNo]);
+					}
+
+					System.out.println();
+				}
+
+
+				/* for (int j = 0; j < players * cardsPerPlayer; j++) {
 
 					System.out.println(deck[j]);
 					if (j % cardsPerPlayer == cardsPerPlayer - 1) {
@@ -76,13 +90,18 @@ public class Deal {
 						System.out.println(++player +". player: ");
 					}
 
-				}
+				} */
+
+
+
 
 			}
 
 		} else {
 			System.out.println("Input error");
 		}
+
+		sc.close();
 
 		
 	}
